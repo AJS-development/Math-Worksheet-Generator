@@ -100,6 +100,7 @@ var sett = settings.multiplication
     return r;
   }
   for (var k=0;k<Math.ceil(numbers.length/3);k++) {
+    worksheet = worksheet + "\n"
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
    if (!numb) continue
