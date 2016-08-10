@@ -54,7 +54,7 @@ for (var i = 0; i < settings.amount; i++) {
         push(numbe[0],numbe[1],1)
         
       } else if (numbe[1] - numbe[0] >= 0) {
-        push(numbe[1],numbe[2],1)
+        push(numbe[1],numbe[0],1)
       } else {
         subtract()
       }
@@ -104,7 +104,7 @@ var sett = settings.multiplication
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
    if (!numb) continue
-    worksheet = worksheet + " " + fill((i + 1 + current) + ". ",4) + fill(numb.a,15)
+    worksheet = worksheet + " " + fill((i + 1 + current) + ". ",6) + fill(numb.a,15)
     
     
   }
@@ -116,9 +116,9 @@ var sett = settings.multiplication
    var sign = "";
    if (numb.op == 0) sign = "+"
    if (numb.op == 1) sign = "-"
-   if (numb.op == 2) sign = "\xD7"
-   if (numb.op == 3) sign = "\xF7"
-    worksheet = worksheet + "    " + sign + "   " + fill(numb.b,15)
+   if (numb.op == 2) sign = "*"
+   if (numb.op == 3) sign = "%"
+    worksheet = worksheet + "     " + sign + "   " + fill(numb.b,15)
     
     
   }
