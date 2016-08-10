@@ -123,3 +123,5 @@ var sett = settings.multiplication
   current += 4;
   
 }
+
+fs.writeFileSync('./worksheet.txt',worksheet)
