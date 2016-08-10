@@ -27,7 +27,7 @@ var addition = init(settings.addition.percent)
 var subtraction = init(settings.subtraction.percent)
 var multiplication = init(settings.multiplication.percent)
 var division = init(settings.division.percent)
-var worksheet = "                           M A T H   W O R K S H E E T                       /n";
+var worksheet = "                           M A T H   W O R K S H E E T                       \n";
 var answer = "                              A N S W E R S                           /n";
 var numbers = []
 function push(a,b,op) {
