@@ -43,14 +43,37 @@ for (var i = 0; i < settings.amount; i++) {
    
     
   } else if (subtraction.check(ra)) {
+    function subtract() {
     var sett = settings.subtraction
     var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
-    
+    if (sett.negativenumb) {
+      push(numbe[0],numbe[1],1)
+      
+    } else {
+      if (numbe[0] - numbe[1] >= 0) {
+        push(numbe[0],numbe[1],1)
+        
+      } else if (numbe[1] - numbe[0] >= 0) {
+        push(numbe[1],numbe[2],1)
+      } else {
+        subtract()
+      }
+    }
+  }
+  subtract()
   } else if (multiplication.check(ra)) {
+var sett = settings.multiplication
+    var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
+    push(numbe[0],numbe[1],3)
     
     
   } else if (division.check(ra)) {
-    
+    function divide() {
+      var sett = settings.division
+    var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
+      
+      
+    }
   } else {
     throw "ERROR"
     
