@@ -64,7 +64,7 @@ for (var i = 0; i < settings.amount; i++) {
   } else if (multiplication.check(ra)) {
 var sett = settings.multiplication
     var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
-    push(numbe[0],numbe[1],3)
+    push(numbe[0],numbe[1],2)
     
     
   } else if (division.check(ra)) {
@@ -74,13 +74,13 @@ var sett = settings.multiplication
       if (sett.hard) {
         var ish = Math.floor(Math.random() * 100)
         if (ish <= sett.hard) {
-          push(numbe[0],numbe[1],4)
+          push(numbe[0],numbe[1],3)
           return
         }
       }
       
-     var a = numbe[0] * numbe[1]
-     push(a,numbe[0],4)
+     var a = numbe[0] * Math.floor(Math.random()*sett.max/4)+sett.min
+     push(a,numbe[0],3)
     }
     divide()
   } else {
@@ -104,7 +104,7 @@ var sett = settings.multiplication
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
    if (!numb) continue
-    worksheet = worksheet + " " + fill((i + 1 + current) + ". ",6) + fill(numb.a,15)
+    worksheet = worksheet + "   " + fill((i + 1 + current) + ". ",7) + fill(numb.a,11)
     
     
   }
@@ -118,7 +118,7 @@ var sett = settings.multiplication
    if (numb.op == 1) sign = "-"
    if (numb.op == 2) sign = "*"
    if (numb.op == 3) sign = "%"
-    worksheet = worksheet + "     " + sign + "   " + fill(numb.b,15)
+    worksheet = worksheet + "       " + sign + "   " + fill(numb.b,11)
     
     
   }
