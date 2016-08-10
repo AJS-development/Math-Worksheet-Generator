@@ -104,7 +104,7 @@ var sett = settings.multiplication
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
    if (!numb) continue
-    worksheet = worksheet + " " + fill((i + 1 + current) + ". ",4) + fill(numb.a,20)
+    worksheet = worksheet + " " + fill((i + 1 + current) + ". ",4) + fill(numb.a,15)
     
     
   }
@@ -118,18 +118,22 @@ var sett = settings.multiplication
    if (numb.op == 1) sign = "-"
    if (numb.op == 2) sign = "\xD7"
    if (numb.op == 3) sign = "\xF7"
-    worksheet = worksheet + " " + sign + "   " + fill(numb.b,20)
+    worksheet = worksheet + "    " + sign + "   " + fill(numb.b,15)
     
     
   }
   worksheet = worksheet + "\n"
     for (var i = 0;i < 3; i ++) { 
         if (!numbers[i + current]) continue
-      worksheet += "      ____________________"
+      worksheet += "      _______________"
       
     }
   current += 4;
-  
+   worksheet = worksheet + "\n"
+    worksheet = worksheet + "\n"
+     worksheet = worksheet + "\n"
+      worksheet = worksheet + "\n"
+       worksheet = worksheet + "\n"
 }
 
 fs.writeFileSync('./worksheet',worksheet)
