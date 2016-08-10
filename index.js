@@ -101,13 +101,16 @@ var sett = settings.multiplication
   for (var k=0;k<Math.ceil(numbers.length/3);k++) {
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
+   if (!numb) continue
     worksheet = worksheet + " " + fill((i + 1) + ". ",4) + fill(numb.a,20)
     
     
   }
   worksheet += "\n"
   for (var i = 0;i < 3; i ++) { 
+ 
    var numb = numbers[current + i];
+   if (!numb) continue
    var sign = "";
    if (numb.op == 0) sign = "+"
    if (numb.op == 1) sign = "-"
@@ -119,6 +122,7 @@ var sett = settings.multiplication
   }
   worksheet += "\n"
     for (var i = 0;i < 3; i ++) { 
+        if (!numbers[i + current]) continue
       worksheet += "      ____________________"
       
     }
