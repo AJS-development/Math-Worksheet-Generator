@@ -71,8 +71,16 @@ var sett = settings.multiplication
     function divide() {
       var sett = settings.division
     var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
+      if (sett.hard) {
+        var ish = Math.floor(Math.random() * 100)
+        if (ish <= sett.hard) {
+          push(numbe[0],numbe[1],4)
+          continue
+        }
+      }
       
-      
+     var a = numbe[0] * numbe[1]
+     push(a,numbe[0],4)
     }
   } else {
     throw "ERROR"
