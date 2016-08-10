@@ -91,6 +91,7 @@ var sett = settings.multiplication
   var current = 0;
   function fill(a,b) {
     if (!a) return
+    a = a.toString()
    var j = b - a.length + 1
     var r = a
     for (var i = 0; i<j;i++) {
