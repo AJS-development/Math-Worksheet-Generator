@@ -75,7 +75,7 @@ var sett = settings.multiplication
         var ish = Math.floor(Math.random() * 100)
         if (ish <= sett.hard) {
           push(numbe[0],numbe[1],4)
-          continue
+          return
         }
       }
       
