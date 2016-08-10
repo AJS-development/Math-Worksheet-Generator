@@ -2,7 +2,7 @@
 const fs = require('fs')
 
 try {
-const settings = JSON.parse(fs.readFileSync(__dirname + "/settings.json","utf8"))
+var settings = JSON.parse(fs.readFileSync(__dirname + "/settings.json","utf8"))
 console.log("Loaded settings")
 } catch (e) {
   console.log("failed to load settings, " + e);
