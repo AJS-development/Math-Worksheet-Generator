@@ -6,9 +6,9 @@
   "addition": 25,
   "subtraction":  25,
   "decimals": false,
-
-
-
+  "amount": "20",
+  "min": "0",
+  "max": "100"
 
 
 
