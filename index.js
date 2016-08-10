@@ -88,8 +88,8 @@ var sett = settings.multiplication
     
   }
   var current = 0;
-  function fill(a) {
-   var j = 30 - a.length
+  function fill(a,b) {
+   var j = b - a.length + 1
     var r = a
     for (var i = 0; i<j;i++) {
       r = r + " "
@@ -97,30 +97,29 @@ var sett = settings.multiplication
     return r;
   }
   for (var k=0;k<Math.ceil(numbers.length/3);k++) {
-    var numb = number[current];
-    worksheet = worksheet + numb.a + "             "
-  
-     var numb = number[current + 1];
-    worksheet = worksheet + numb.a + "             "
-
-     var numb = number[current + 2];
-    worksheet = worksheet + numb.a + "             "
-     var numb = number[current + 3];
-    worksheet = worksheet + numb.a + "             /n"
-    var numb = number[current];
-    worksheet = worksheet + numb.b + "             "
-  
-     var numb = number[current + 1];
-    worksheet = worksheet + numb.b + "             "
-
-     var numb = number[current + 2];
-    worksheet = worksheet + numb.b + "             "
-     var numb = number[current + 3];
-    worksheet = worksheet + numb.b + "             /n"
+  for (var i = 0;i < 3; i ++) { 
+   var numb = numbers[current + i];
+    worksheet = worksheet + " " + fill((i + 1) + ". ",4) + fill(numb.a,20)
     
-    }
     
   }
-  
+  worksheet += "\n"
+  for (var i = 0;i < 3; i ++) { 
+   var numb = numbers[current + i];
+   var sign = "";
+   if (numb.op == 0) sign = "+"
+   if (numb.op == 1) sign = "-"
+   if (numb.op == 2) sign = "\xD7"
+   if (numb.op == 3) sign = "\xF7"
+    worksheet = worksheet + " " + sign + "   " + fill(numb.b,20)
+    
+    
+  }
+  worksheet += "\n"
+    for (var i = 0;i < 3; i ++) { 
+      worksheet += "      ____________________"
+      
+    }
+  current += 4;
   
 }
