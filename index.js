@@ -102,11 +102,11 @@ var sett = settings.multiplication
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
    if (!numb) continue
-    worksheet = worksheet + " " + fill((i + 1) + ". ",4) + fill(numb.a,20)
+    worksheet = worksheet + " " + fill((i + 1 + current) + ". ",4) + fill(numb.a,20)
     
     
   }
-  worksheet += "\n"
+  worksheet = worksheet + "\n"
   for (var i = 0;i < 3; i ++) { 
  
    var numb = numbers[current + i];
@@ -120,7 +120,7 @@ var sett = settings.multiplication
     
     
   }
-  worksheet += "\n"
+  worksheet = worksheet + "\n"
     for (var i = 0;i < 3; i ++) { 
         if (!numbers[i + current]) continue
       worksheet += "      ____________________"
@@ -130,4 +130,4 @@ var sett = settings.multiplication
   
 }
 
-fs.writeFileSync('./worksheet.txt',worksheet)
+fs.writeFileSync('./worksheet',worksheet)
