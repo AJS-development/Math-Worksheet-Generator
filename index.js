@@ -87,6 +87,7 @@ var sett = settings.multiplication
     throw "ERROR"
     
   }
+}
   var current = 0;
   function fill(a,b) {
    var j = b - a.length + 1
