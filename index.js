@@ -82,11 +82,45 @@ var sett = settings.multiplication
      var a = numbe[0] * numbe[1]
      push(a,numbe[0],4)
     }
+    divide()
   } else {
     throw "ERROR"
     
   }
+  var current = 0;
+  function fill(a) {
+   var j = 30 - a.length
+    var r = a
+    for (var i = 0; i<j;i++) {
+      r = r + " "
+    }
+    return r;
+  }
+  for (var k=0;k<Math.ceil(numbers.length/3);k++) {
+    var numb = number[current];
+    worksheet = worksheet + numb.a + "             "
   
+     var numb = number[current + 1];
+    worksheet = worksheet + numb.a + "             "
+
+     var numb = number[current + 2];
+    worksheet = worksheet + numb.a + "             "
+     var numb = number[current + 3];
+    worksheet = worksheet + numb.a + "             /n"
+    var numb = number[current];
+    worksheet = worksheet + numb.b + "             "
+  
+     var numb = number[current + 1];
+    worksheet = worksheet + numb.b + "             "
+
+     var numb = number[current + 2];
+    worksheet = worksheet + numb.b + "             "
+     var numb = number[current + 3];
+    worksheet = worksheet + numb.b + "             /n"
+    
+    }
+    
+  }
   
   
 }
