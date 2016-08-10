@@ -23,15 +23,18 @@ function init(a) {
     }
   }
 }
-var addition = init(settings.addition)
-var subtraction = init(settings.subtractions)
-var multiplication = init(settings.multiplication)
-var division = init(settings.division)
-
+var addition = init(settings.addition.percent)
+var subtraction = init(settings.subtractions.percent)
+var multiplication = init(settings.multiplication.percent)
+var division = init(settings.division.percent)
+var worksheet = "                           M A T H   W O R K S H E E T                       /n";
 for (var i = 0; i < settings.amount; i++) {
   var ra = Math.floor(Math.random() * percentsum) + 1
   if (addition.check(ra)) {
     // addition
+    var numbers = [Math.floor(Math.random()*settings.adsition.max) + min,Math.floor(Math.random()*settings.adsition.max) + min]
+    
+    
     
   } else if (subtraction.check(ra)) {
     
