@@ -2,33 +2,27 @@
  {
   "multiplication": {
    "percent": 25,
-   "negativenumb": 30,
    "min": 0,
-   "max": 100,
+   "max": 100
   },
   "division": {
    "percent": 25,
-   "negativenumb": 30,
-   "negativeans": true,
    "hard": false,
    "min": 0,
-   "max": 100,
+   "max": 100
   },
   "addition": {
    "percent": 25,
-   "negativenumb": 30,
-   "negativeans": true,
    "min": 0,
-   "max": 100,
+   "max": 100
   },
   "subtraction": {
    "percent": 25,
-   "negativenumb": 30,
    "negativeans": true,
    "min": 0,
-   "max": 100,
+   "max": 100
   },
-  "amount": 20,
+  "amount": 20
 
 
 
