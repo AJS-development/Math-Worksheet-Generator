@@ -11,22 +11,40 @@ console.log("Loaded settings")
 var percentsum = 0;
 function init(a) {
   if (!a) return {
-   min: -1000,
-   max: -1000
+   check: function(b) {return false}
   }
   percentsum = a + percentsum;
   return {
    min: percentsum - a, 
-    max: percentsum
+    max: percentsum,
+    check: function(numb) {
+      if (numb <= this.min || numb > this.max) return false; else return true;
+      
+    }
   }
 }
 var addition = init(settings.addition)
 var subtraction = init(settings.subtractions)
-
+var multiplication = init(settings.multiplication)
+var division = init(settings.division)
 
 for (var i = 0; i < settings.amount; i++) {
-  
-  
+  var ra = Math.floor(Math.random() * percentsum) + 1
+  if (addition.check(ra)) {
+    // addition
+    
+  } else if (subtraction.check(ra)) {
+    
+    
+  } else if (multiplication.check(ra)) {
+    
+    
+  } else if (division.check(ra)) {
+    
+  } else {
+    throw "ERROR"
+    
+  }
   
   
   
