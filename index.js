@@ -31,6 +31,8 @@ var worksheet = "                           M A T H   W O R K S H E E T         
 var answer = "                              A N S W E R S                           /n";
 var numbers = []
 function push(a,b,op) {
+  if (!a) throw "A"
+  if (!b) throw "B"
   numbers.push({a:a,b:b,op:op})
   
 }
@@ -104,7 +106,7 @@ var sett = settings.multiplication
   for (var i = 0;i < 3; i ++) { 
    var numb = numbers[current + i];
    if (!numb) continue
-    worksheet = worksheet + "   " + fill((i + 1 + current) + ". ",7) + fill(numb.a,11)
+    worksheet = worksheet + "   " + fill((i + 1 + current) + ". ",7) + fill(numb.a,10)
     
     
   }
@@ -118,7 +120,7 @@ var sett = settings.multiplication
    if (numb.op == 1) sign = "-"
    if (numb.op == 2) sign = "*"
    if (numb.op == 3) sign = "%"
-    worksheet = worksheet + "       " + sign + "   " + fill(numb.b,11)
+    worksheet = worksheet + "       " + sign + "   " + fill(numb.b,10)
     
     
   }
@@ -128,7 +130,7 @@ var sett = settings.multiplication
       worksheet += "      _______________"
       
     }
-  current += 4;
+  current += 3;
    worksheet = worksheet + "\n"
     worksheet = worksheet + "\n"
      worksheet = worksheet + "\n"
