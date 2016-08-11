@@ -120,7 +120,7 @@ console.log("Done generating. \nGenerating Answers")
     if (numb.op == 1) answer = numb.a - numb.b
     if (numb.op == 2) answer = numb.a * numb.b
     if (numb.op == 3) answer = numb.a / numb.b
-    var nu = i + 1
+    var nu = parseInt(i) + 1;
     answers +=  nu + ". " + answer + "\n"
     process.stdout.write("Done with question" + (i + 1) + "\r")
   }
