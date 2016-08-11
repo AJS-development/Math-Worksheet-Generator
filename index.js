@@ -20,7 +20,7 @@ function getr(sett) {
   
     return [a,b];
   }
-  grn(sett)
+ return grn(sett)
 }
 function init(a) {
   if (!a) return {
