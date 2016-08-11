@@ -31,8 +31,6 @@ var worksheet = "                           M A T H   W O R K S H E E T         
 var answer = "                              A N S W E R S                           /n";
 var numbers = []
 function push(a,b,op) {
-  if (!a) throw "A"
-  if (!b) throw "B"
   numbers.push({a:a,b:b,op:op})
   
 }
@@ -65,8 +63,12 @@ for (var i = 0; i < settings.amount; i++) {
   subtract()
   } else if (multiplication.check(ra)) {
 var sett = settings.multiplication
-    var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
-    push(numbe[0],numbe[1],2)
+    var n = Math.random()
+    var na = Math.floor(n * sett.max)
+    var numbe = na + sett.min
+    var nu = Math.floor((Math.random()*sett.max))+sett.min
+    if (!numbe || !nu) console.log(sett + "|" + n + "|" + na + "|" + numbe)
+    push(numbe,nu,2)
     
     
   } else if (division.check(ra)) {
@@ -81,7 +83,7 @@ var sett = settings.multiplication
         }
       }
       
-     var a = numbe[0] * Math.floor(Math.random()*sett.max/4)+sett.min
+     var a = numbe[0] * (Math.floor(Math.random()*sett.max/4)+sett.min)
      push(a,numbe[0],3)
     }
     divide()
