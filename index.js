@@ -9,6 +9,12 @@ console.log("Loaded settings")
   process.exit()
 }
 var percentsum = 0;
+function getr(sett) {
+  var a = Math.floor(Math.random()*sett.max)+sett.min
+  var b = Math.floor(Math.random()*sett.max)+sett.min
+  if (!a || !b) return getr(sett)
+  return [a,b]
+}
 function init(a) {
   if (!a) return {
    check: function(b) {return false}
@@ -23,6 +29,7 @@ function init(a) {
     }
   }
 }
+console.log("Initiating operators")
 var addition = init(settings.addition.percent)
 var subtraction = init(settings.subtraction.percent)
 var multiplication = init(settings.multiplication.percent)
@@ -34,18 +41,20 @@ function push(a,b,op) {
   numbers.push({a:a,b:b,op:op})
   
 }
+console.log("Initialised \nGenerating numbers");
 for (var i = 0; i < settings.amount; i++) {
   var ra = Math.floor(Math.random() * percentsum) + 1
   if (addition.check(ra)) {
-    // addition (0)
-    var numbe = [Math.floor(Math.random()*settings.addition.max) + settings.addition.min,Math.floor(Math.random()*settings.addition.max) + settings.addition.min]
-      push(numbe[0],numbe[1],0)
+    console.log("Question " + (i + 1) + " is addition")
+   var nombe = getr(settings.addition)
+        push(numbe[0],numbe[1],0)
    
     
   } else if (subtraction.check(ra)) {
+     console.log("Question " + (i + 1) + " is subtraction")
     function subtract() {
     var sett = settings.subtraction
-    var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
+    var numbe = getr(sett)
     if (sett.negativenumb) {
       push(numbe[0],numbe[1],1)
       
@@ -62,19 +71,17 @@ for (var i = 0; i < settings.amount; i++) {
   }
   subtract()
   } else if (multiplication.check(ra)) {
+     console.log("Question " + (i + 1) + " is multiplication")
 var sett = settings.multiplication
-    var n = Math.random()
-    var na = Math.floor(n * sett.max)
-    var numbe = na + sett.min
-    var nu = Math.floor((Math.random()*sett.max))+sett.min
-    if (!numbe || !nu) console.log(sett + "|" + n + "|" + na + "|" + numbe)
-    push(numbe,nu,2)
+   var numbe = getr(sett)
+    push(numbe[0],numbe[1],2)
     
     
   } else if (division.check(ra)) {
+     console.log("Question " + (i + 1) + " is division")
     function divide() {
       var sett = settings.division
-    var numbe = [Math.floor(Math.random()*sett.max)+sett.min,Math.floor(Math.random()*sett.max)+sett.min]
+    var numbe = getr(sett)
       if (sett.hard) {
         var ish = Math.floor(Math.random() * 100)
         if (ish <= sett.hard) {
@@ -83,7 +90,7 @@ var sett = settings.multiplication
         }
       }
       
-     var a = numbe[0] * (Math.floor(Math.random()*sett.max/4)+sett.min)
+     var a = numbe[0] * Math.floor(Math.random()*sett.max/4 + 1)
      push(a,numbe[0],3)
     }
     divide()
@@ -92,6 +99,7 @@ var sett = settings.multiplication
     
   }
 }
+console.log("Done generating. \nGenerating Answers")
   var current = 0;
   function fill(a,b) {
     if (!a) return
@@ -103,13 +111,26 @@ var sett = settings.multiplication
     }
     return r;
   }
+  for (var i in numbers) {
+    var numb = numbers[i]
+    var answer = false;
+    if (numb.op == 0) answer = numb.a + numb.b
+    if (numb.op == 1) answer = numb.a - numb.b
+    if (numb.op == 2) answer = numb.a * numb.b
+    if (numb.op == 3) answer = numb.a / numb.b
+    answers += (i + 1) + ". " + answer + "\n"
+    process.stdout.write("Done with question" + (i + 1) + "\r")
+  }
+  fs.writeFileSync("./answers",answers)
+  console.log("\nDone generating answers\nGenerating questions")
   for (var k=0;k<Math.ceil(numbers.length/3);k++) {
     worksheet = worksheet + "\n"
   for (var i = 0;i < 3; i ++) { 
+    
    var numb = numbers[current + i];
    if (!numb) continue
     worksheet = worksheet + "   " + fill((i + 1 + current) + ". ",7) + fill(numb.a,10)
-    
+    process.stdout.write("Done with question" + (i + 1) + "\r")
     
   }
   worksheet = worksheet + "\n"
@@ -141,3 +162,4 @@ var sett = settings.multiplication
 }
 
 fs.writeFileSync('./worksheet',worksheet)
+console.log("\nDone")
