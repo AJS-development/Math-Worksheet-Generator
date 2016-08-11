@@ -105,10 +105,12 @@ console.log("Done generating. \nGenerating Answers")
     if (!a) return
     a = a.toString()
    var j = b - a.length + 1
-    var r = a
+   var r = ""
     for (var i = 0; i<j;i++) {
       r = r + " "
     }
+    r += a
+   
     return r;
   }
   for (var i in numbers) {
