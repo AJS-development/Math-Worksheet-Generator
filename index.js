@@ -101,15 +101,15 @@ var sett = settings.multiplication
 }
 console.log("Done generating. \nGenerating Answers")
   var current = 0;
-  function fill(a,b) {
+  function fill(a,b,c) {
     if (!a) return
     a = a.toString()
    var j = b - a.length + 1
-   var r = ""
+   var r = (c) ? a : "";
     for (var i = 0; i<j;i++) {
       r = r + " "
     }
-    r += a
+    if (!c) r += a
    
     return r;
   }
@@ -132,7 +132,7 @@ console.log("Done generating. \nGenerating Answers")
     
    var numb = numbers[current + i];
    if (!numb) continue
-    worksheet = worksheet + "   " + fill((i + 1 + current) + ". ",7) + fill(numb.a,10)
+    worksheet = worksheet + "   " + fill((i + 1 + current) + ". ",7,true) + fill(numb.a,6) + "    "
     process.stdout.write("Done with question" + (i + 1) + "\r")
     
   }
@@ -146,14 +146,14 @@ console.log("Done generating. \nGenerating Answers")
    if (numb.op == 1) sign = "-"
    if (numb.op == 2) sign = "*"
    if (numb.op == 3) sign = "%"
-    worksheet = worksheet + "       " + sign + "   " + fill(numb.b,10)
+    worksheet = worksheet + "       " + sign + "   " + fill(numb.b,6) + "    "
     
     
   }
   worksheet = worksheet + "\n"
     for (var i = 0;i < 3; i ++) { 
         if (!numbers[i + current]) continue
-      worksheet += "      _______________"
+      worksheet += "      _______________ "
       
     }
   current += 3;
