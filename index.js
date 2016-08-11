@@ -10,16 +10,17 @@ console.log("Loaded settings")
 }
 var percentsum = 0;
 function getr(sett) {
-  if (sett.min < 0) {
-  var a = Math.floor(Math.random()*(sett.max+Math.abs(sett.min))) + sett.min
-  var b = Math.floor(Math.random()*(sett.max+Math.abs(sett.min))) + sett.min    
+  var grn = function() {
+  var min = (sett.min < 0) ? sett.min : 0;
+  var a = Math.floor(Math.random()*(sett.max+Math.abs(min))) + sett.min
+  var b = Math.floor(Math.random()*(sett.max+Math.abs(min))) + sett.min    
     
-  } else {
-  var a = Math.floor(Math.random()*sett.max)+sett.min
-  var b = Math.floor(Math.random()*sett.max)+sett.min
+ 
+  if (!a || !b) return grn(sett)
+  
+    return [a,b];
   }
-  if (!a || !b) return getr(sett)
-  return [a,b]
+  grn(sett)
 }
 function init(a) {
   if (!a) return {
