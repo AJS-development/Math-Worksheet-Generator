@@ -34,8 +34,8 @@ var addition = init(settings.addition.percent)
 var subtraction = init(settings.subtraction.percent)
 var multiplication = init(settings.multiplication.percent)
 var division = init(settings.division.percent)
-var worksheet = "                           M A T H   W O R K S H E E T                       \n";
-var answers = "                              A N S W E R S                           /n";
+var worksheet = "                    M A T H   W O R K S H E E T                       \n";
+var answers = "                              A N S W E R S                           \n";
 var numbers = []
 function push(a,b,op) {
   numbers.push({a:a,b:b,op:op})
@@ -90,7 +90,7 @@ var sett = settings.multiplication
         }
       }
       
-     var a = numbe[0] * Math.floor(Math.random()*sett.max/4 + 1)
+     var a = numbe[0] * Math.floor(Math.random()*sett.maxAns + sett.minAns) 
      push(a,numbe[0],3)
     }
     divide()
@@ -118,7 +118,8 @@ console.log("Done generating. \nGenerating Answers")
     if (numb.op == 1) answer = numb.a - numb.b
     if (numb.op == 2) answer = numb.a * numb.b
     if (numb.op == 3) answer = numb.a / numb.b
-    answers += (i + 1) + ". " + answer + "\n"
+    var nu = i + 1
+    answers +=  nu + ". " + answer + "\n"
     process.stdout.write("Done with question" + (i + 1) + "\r")
   }
   fs.writeFileSync("./answers",answers)
