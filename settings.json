@@ -8,7 +8,9 @@
    "percent": 25,
    "hard": false,
    "min": 0,
-   "max": 100
+   "max": 100,
+   "minAns": 40,
+   "maxAns": 1
   },
   "addition": {
    "percent": 25,
